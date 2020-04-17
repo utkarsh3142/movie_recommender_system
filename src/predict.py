@@ -3,6 +3,7 @@
 # Import dependencies
 import pickle
 import numpy as np
+# from keras.models import load_model
 
 # Load mapping dictionaries
 with open('model/movie_to_idx.pickle', 'rb') as handle:
@@ -14,7 +15,12 @@ with open('model/link_to_idx.pickle', 'rb') as handle:
 with open('model/idx_to_movie.pickle', 'rb') as handle:
     idx_to_movie = pickle.load(handle)
 
+# Load movie encodings
 movie_encodings = np.load('model/movie_encodings.npy')
+
+# Load encoder
+# encoder = load_model('model/encoder.h5')
+# print(encoder.summary())
 
 # Movie list
 movies = movie_to_idx.keys()
