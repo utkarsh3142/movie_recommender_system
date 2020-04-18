@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request, render_template
 from src.predict import *
 
 # app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_url_path='/static')
 
 # routes
 
