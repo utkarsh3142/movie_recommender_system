@@ -10,14 +10,14 @@ MarkupSafe==1.0
 pandas-datareader==0.6.0
 python-dateutil==2.6.1
 pytz==2018.3
-requests==2.18.4
+requests==2.20.0
 requests-file==1.4.3
 requests-ftp==0.3.1
 scikit-learn==0.19.1
 scipy==1.0.0
 six==1.11.0
-urllib3==1.22
-Werkzeug==0.14.1
+urllib3==1.24.2
+Werkzeug==0.15.3
 wrapt==1.10.11
 Keras==2.2.5
 numpy==1.17.3
