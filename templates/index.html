@@ -5,12 +5,14 @@
 		
 		<h3> Enter your favourite movie! </h3> <br>
 		
-		<input list="movies" placeholder="search movies" autofocus autocomplete="on">
+		<input list="movies" placeholder="search movies" autofocus autocomplete="on" id="movie_name">
 		<datalist id="movies" onchange="show(this)" maxlength=10></datalist>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<input type="submit">
+		<input type="submit" onclick="displayRecommends()"> <br> <br>
+		<div id="place_for_recommendations"></div>
 
 		<script>
+			// Function to populate datalist using movies1.json
 			function getCars() {
 				var url, carOption;
 				url = "/static/movies1.json";
@@ -21,6 +23,23 @@
 							carsOption = "<option value='" + this + "'>" + this + "</option>";
 							$('#movies').append(carsOption);
 						});
+				});
+			}
+			
+			// Function to request to app.py and display results
+			function displayRecommends(){
+				var text = $('#movie_name').val();
+
+				$.ajax({
+					url: "/recommend",
+					type: "get",
+					data: {jsdata: text},
+					success: function(response) {
+						$("#place_for_recommendations").html(response);
+					},
+					error: function(xhr) {
+						//Do Something to handle error
+					}
 				});
 			}
 		</script>
