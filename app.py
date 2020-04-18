@@ -15,8 +15,21 @@ def index():
 
 @app.route('/recommend', methods=['POST','GET'])
 def predict():
-    
     # get data
+		text = request.args.get('jsdata')
+		
+		# Get recommendations
+		result = getSimilarMovies(movie_name=text, similar_num=15)
+		
+		# Get google search queries
+		gs = "https://www.google.com/search?q="
+		result_links = [gs + res + ' movie' for res in result]
+		
+		# Render results in table format
+		return render_template('recommendations_table.html', suggestions = zip(result, result_links))
+		
+		
+		"""
     data = request.get_json(force=True)
     
     #print(data)
@@ -36,6 +49,7 @@ def predict():
 
     # return data
     return jsonify(results=output)
+		"""
 
 if __name__ == '__main__':
 # load model
