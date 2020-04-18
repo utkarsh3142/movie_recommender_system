@@ -1,12 +1,18 @@
 import pandas as pd
 import numpy as np
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from src.predict import *
 
 # app
 app = Flask(__name__)
 
 # routes
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
 @app.route('/recommend', methods=['POST','GET'])
 def predict():
     
