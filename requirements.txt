@@ -19,7 +19,7 @@ urllib3==1.24.2
 Werkzeug==0.15.3
 wrapt==1.10.11
 Keras==2.2.5
-numpy==1.17.3
+numpy==1.22.0
 Flask==1.1.1
 requests==2.22.0
 tqdm==4.36.1
